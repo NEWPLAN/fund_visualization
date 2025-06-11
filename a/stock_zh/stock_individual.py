@@ -9,6 +9,7 @@ import glog as logger
 
 
 ## ref: https://zhuanlan.zhihu.com/p/18102451465
+## ref: https://gitlab.eduxiji.net/githubexcellent/akshare/-/blob/cc6790f5f5c2aa983a60dac3db69948b662578d3/akshare/stock/zh_stock_kcb_sina.py
 
 
 def get_stock_data(

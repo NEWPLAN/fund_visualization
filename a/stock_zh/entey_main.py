@@ -42,15 +42,17 @@ def main():
     # import ipdb
 
     # ipdb.set_trace()
-    meta_info = safe_fetch_meta(["sh"])
+    marketing = "sz"
+    meta_info = safe_fetch_meta([marketing])
     set_global_style()
     for stock_code, info in meta_info:
-        stock_data = safe_feta_individual("sh" + stock_code)
+        stock_code = marketing + stock_code
+        stock_data = safe_feta_individual(symbol=stock_code, type=marketing)
         if len(stock_data) == 1:
             logger.warn("stock_code is empty: {}|{}".format(stock_code, info))
             continue
         if not stock_data.empty:
-            fig = draw_kline(stock_data, title=f"sh{stock_code}｜{info}")
+            fig = draw_kline(stock_data, title=f"{stock_code}｜{info}")
             if fig:
                 plt.show()
                 pass

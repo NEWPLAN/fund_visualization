@@ -42,7 +42,7 @@ def main():
     # import ipdb
 
     # ipdb.set_trace()
-    marketing = "sh"
+    marketing = "sz"
     meta_info = safe_fetch_meta([marketing])
     set_global_style()
     for stock_code, info in meta_info:

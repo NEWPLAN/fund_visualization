@@ -29,8 +29,8 @@ def safe_fetch_meta(type: list):
     raise "non-data"
 
 
-def safe_feta_individual(symbol, type="sh"):
-    result = get_stock_data(stock_code=symbol, type=type, days=30)
+def safe_feta_individual(symbol, market="sh"):
+    result = get_stock_data(stock_code=symbol, market=market, days=30)
     logger.info("stock_line: {}".format(len(result)))
     if result is None:
         raise "failed to fetch {symbol}"
@@ -42,12 +42,13 @@ def main():
     # import ipdb
 
     # ipdb.set_trace()
-    marketing = "sz"
+    marketing = "sh"
     meta_info = safe_fetch_meta([marketing])
     set_global_style()
     for stock_code, info in meta_info:
         stock_code = marketing + stock_code
-        stock_data = safe_feta_individual(symbol=stock_code, type=marketing)
+        stock_data = safe_feta_individual(symbol=stock_code, market=marketing)
+        continue
         if len(stock_data) == 1:
             logger.warn("stock_code is empty: {}|{}".format(stock_code, info))
             continue
